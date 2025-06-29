@@ -4,6 +4,7 @@ use serde::{
   Deserialize,
   Serialize,
 };
+use web_extensions_sys::chrome_history;
 
 use crate::{
   util::*,
@@ -13,7 +14,7 @@ use crate::{
 /// <https://developer.chrome.com/docs/extensions/reference/history/#method-search>
 pub async fn search(query: &Query<'_>) -> Result<Vec<HistoryItem>, Error> {
   let js_query = js_from_serde(query)?;
-  let js_value = chrome().history().search(object_from_js(&js_query)?).await;
+  let js_value = chrome_history().search(object_from_js(&js_query)?).await;
   serde_from_js(js_value)
 }
 

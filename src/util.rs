@@ -2,7 +2,7 @@ use gloo_utils::format::JsValueSerdeExt;
 use js_sys::Object;
 use wasm_bindgen::{
   prelude::*,
-  JsStatic,
+  JsThreadLocal,
 };
 use web_extensions_sys as sys;
 use web_extensions_sys::Browser;
@@ -29,14 +29,4 @@ where
   T: for<'a> serde::Deserialize<'a>,
 {
   v.into_serde().map_err(Error::JsonDeserialization)
-}
-
-#[cfg(not(feature = "firefox"))]
-pub(crate) fn chrome() -> &'static JsStatic<Browser> {
-  sys::chrome()
-}
-
-#[cfg(feature = "firefox")]
-pub(crate) fn chrome() -> &'static JsStatic<Browser> {
-  sys::browser()
 }

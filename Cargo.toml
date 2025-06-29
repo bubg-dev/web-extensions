@@ -24,7 +24,10 @@ serde_json = "1.0.87"
 thiserror = "1.0.37"
 wasm-bindgen = "0.2.83"
 wasm-bindgen-futures = "0.4.33"
-web-extensions-sys = "0.4.0"
+
+[dependencies.web-extensions-sys]
+git = "https://github.com/bubg-dev/web-extensions-sys"
+rev = "7042a6b6b70c01da6b05720bdb88ca7848d40950"
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.33"
