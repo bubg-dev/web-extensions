@@ -4,17 +4,17 @@ use super::prelude::*;
 #[derive(Debug, Deserialize)]
 #[serde(rename_all = "camelCase")]
 pub struct MutedInfo {
-    pub muted: bool,
-    pub extension_id: Option<String>,
-    pub reason: Option<String>,
+  pub muted: bool,
+  pub extension_id: Option<String>,
+  pub reason: Option<String>,
 }
 
 impl From<sys::TabMutedInfo> for MutedInfo {
-    fn from(info: sys::TabMutedInfo) -> Self {
-        Self {
-            muted: info.muted(),
-            extension_id: info.extension_id(),
-            reason: info.reason(),
-        }
+  fn from(info: sys::TabMutedInfo) -> Self {
+    Self {
+      muted: info.muted(),
+      extension_id: info.extension_id(),
+      reason: info.reason(),
     }
+  }
 }
