@@ -4,7 +4,6 @@ use serde::{
   Deserialize,
   Serialize,
 };
-use web_extensions_sys::chrome_bookmarks;
 
 use crate::{
   util::*,
@@ -14,7 +13,7 @@ use crate::{
 /// <https://developer.chrome.com/docs/extensions/reference/bookmarks/#method-search>
 pub async fn search(query: &Query<'_>) -> Result<Vec<BookmarkTreeNode>, Error> {
   let js_query = js_from_serde(query)?;
-  let js_value = chrome_bookmarks().search(&js_query).await;
+  let js_value = chrome().bookmarks().search(&js_query).await;
   serde_from_js(js_value)
 }
 

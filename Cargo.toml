@@ -27,7 +27,7 @@ wasm-bindgen-futures = "0.4.33"
 
 [dependencies.web-extensions-sys]
 git = "https://github.com/bubg-dev/web-extensions-sys"
-rev = "7042a6b6b70c01da6b05720bdb88ca7848d40950"
+rev = "1635bd8bf7696c8596ea4b83645cfa0ae4810b67"
 
 [dev-dependencies]
 wasm-bindgen-test = "0.3.33"

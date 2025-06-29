@@ -7,8 +7,8 @@ pub(crate) mod prelude {
   };
   pub use wasm_bindgen::closure::Closure;
   pub use web_extensions_sys as sys;
-  use web_extensions_sys::chrome_tabs;
 
+  use crate::util::chrome;
   pub(crate) use crate::util::{
     js_from_serde,
     object_from_js,
@@ -25,7 +25,7 @@ pub(crate) mod prelude {
     //
     // Once MV3 is supported by FireFox, we need to check if we can use the same namespace,
     // a shim or our own implementation.
-    chrome_tabs()
+    chrome().tabs()
   }
 }
 
