@@ -23,6 +23,6 @@ pub struct QueryDetails<'a> {
   pub status: Option<Status>,
   pub title: Option<&'a str>,
   pub url: Option<&'a str>,
-  pub window_id: i32,
+  pub window_id: Option<i32>,
   pub window_type: Option<WindowType>,
 }
